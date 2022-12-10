@@ -1,5 +1,6 @@
 import React from "react";
 import { useStyle } from "./hooks";
+import withContext from "./withContext";
 
 interface TriBouncyBlockProps {
     w : number,
@@ -13,4 +14,4 @@ const TriBouncyBlock = (props : TriBouncyBlockProps) => {
     return <div style = {blockStyle()} onClick = {() => props.onClick()}></div>
 }
 
-export default TriBouncyBlock 
+export default withContext(TriBouncyBlock)
