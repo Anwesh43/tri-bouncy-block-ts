@@ -4,7 +4,17 @@ const delay : number = 20
 const scGap : number = 0.01 
 const parts : number = 3
 
-export const useAnimatedScale = () => {
+export interface DimensionProps {
+    w : number, 
+    h : number 
+}
+
+export interface AnimatedScaleProps {
+    scale : number, 
+    start : () => void  
+}
+
+export const useAnimatedScale = () : AnimatedScaleProps => {
     const [scale, setScale] = useState(0)
     const [animated, setAnimated] = useState(false)
     return {
@@ -27,7 +37,7 @@ export const useAnimatedScale = () => {
     }
 }
 
-export const useDimension = () => {
+export const useDimension = () : DimensionProps  => {
     const [w, setW] = useState(window.innerWidth)
     const [h, setH] = useState(window.innerHeight)
     useEffect(() => {
